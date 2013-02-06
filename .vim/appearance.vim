@@ -21,7 +21,11 @@ hi tab gui=underline guifg=blue ctermbg=blue
 set guioptions-=m
 set guioptions-=T
 
-set guifont=Ubuntu\ Mono\ 13
+if has("macunix")
+  set guifont=Menlo\ Regular:h14
+else
+  set guifont=Ubuntu\ Mono\ 13
+endif
 
 set display=lastline
 

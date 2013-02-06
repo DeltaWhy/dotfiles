@@ -25,6 +25,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'briancollins/vim-jst'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'slim-template/vim-slim'
 
 if iCanHazVundle == 0
 echo "Installing Bundles, please ignore key map error messages"
