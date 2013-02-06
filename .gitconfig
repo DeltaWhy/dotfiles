@@ -1,0 +1,5 @@
+[user]
+	name = Michael Limiero
+	email = mike5713@gmail.com
+[core]
+	excludesfile = /home/michael/.gitignore_global
