@@ -16,6 +16,8 @@ Bundle 'gmarik/vundle'
 "Add your bundles here
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-endwise'
@@ -26,6 +28,7 @@ Bundle 'briancollins/vim-jst'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'slim-template/vim-slim'
+Bundle 'kchmck/vim-coffee-script'
 
 if iCanHazVundle == 0
 echo "Installing Bundles, please ignore key map error messages"
