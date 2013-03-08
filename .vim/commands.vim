@@ -1,9 +1,9 @@
 let mapleader = ","
 let maplocalleader = "\\"
 nnoremap <leader>v :tabedit $MYVIMRC<cr>
-nnoremap <leader>g :execute "grep -r " . expand("<cword>") . " ."<cr>
-nnoremap <leader>G :execute "grep -r " . expand("<cWORD>") . " ."<cr>
-vnoremap <leader>g :execute "grep -r " . getline("'<")[getpos("'<")[2]-1:getpos("'>")[2]] . " ."<cr>
+nnoremap <leader>g :execute "Ggrep " . expand("<cword>")<cr>
+nnoremap <leader>G :execute "Ggrep " . expand("<cWORD>")<cr>
+vnoremap <leader>g :execute "Ggrep " . getline("'<")[getpos("'<")[2]-1:getpos("'>")[2]]<cr>
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
@@ -46,15 +46,15 @@ function! NextIndent(exclusive, fwd, lowerlevel, skipblanks)
 endfunction
 
 " Moving back and forth between lines of same or lower indentation.
-nnoremap <silent> [l :call NextIndent(0, 0, 0, 1)<CR>
-nnoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>
-nnoremap <silent> [L :call NextIndent(0, 0, 1, 1)<CR>
-nnoremap <silent> ]L :call NextIndent(0, 1, 1, 1)<CR>
-vnoremap <silent> [l <Esc>:call NextIndent(0, 0, 0, 1)<CR>m'gv''
-vnoremap <silent> ]l <Esc>:call NextIndent(0, 1, 0, 1)<CR>m'gv''
-vnoremap <silent> [L <Esc>:call NextIndent(0, 0, 1, 1)<CR>m'gv''
-vnoremap <silent> ]L <Esc>:call NextIndent(0, 1, 1, 1)<CR>m'gv''
-onoremap <silent> [l :call NextIndent(0, 0, 0, 1)<CR>
-onoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>
-onoremap <silent> [L :call NextIndent(1, 0, 1, 1)<CR>
-onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>
+nnoremap <silent> [i :call NextIndent(0, 0, 0, 1)<CR>
+nnoremap <silent> ]i :call NextIndent(0, 1, 0, 1)<CR>
+nnoremap <silent> [I :call NextIndent(0, 0, 1, 1)<CR>
+nnoremap <silent> ]I :call NextIndent(0, 1, 1, 1)<CR>
+vnoremap <silent> [i <Esc>:call NextIndent(0, 0, 0, 1)<CR>m'gv''
+vnoremap <silent> ]i <Esc>:call NextIndent(0, 1, 0, 1)<CR>m'gv''
+vnoremap <silent> [I <Esc>:call NextIndent(0, 0, 1, 1)<CR>m'gv''
+vnoremap <silent> ]I <Esc>:call NextIndent(0, 1, 1, 1)<CR>m'gv''
+onoremap <silent> [i :call NextIndent(0, 0, 0, 1)<CR>
+onoremap <silent> ]i :call NextIndent(0, 1, 0, 1)<CR>
+onoremap <silent> [I :call NextIndent(1, 0, 1, 1)<CR>
+onoremap <silent> ]I :call NextIndent(1, 1, 1, 1)<CR>
