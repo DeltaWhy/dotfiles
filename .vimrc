@@ -18,6 +18,7 @@ set shiftwidth=4
 set sts=4
 set incsearch
 set hlsearch
+set shiftround
 if has('mouse')
   set mouse=a
 endif

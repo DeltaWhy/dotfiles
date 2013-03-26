@@ -33,6 +33,9 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'slim-template/vim-slim'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'bkad/CamelCaseMotion'
+Bundle 'vim-scripts/argtextobj.vim'
+Bundle 'skwp/vim-rspec'
 
 if iCanHazVundle == 0
 echo "Installing Bundles, please ignore key map error messages"

@@ -8,6 +8,10 @@ map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+noremap <F1> <Esc>
+
+" this should be a default
+map Y y$
 
 cmap w!! w !sudo dd of=%
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -58,3 +62,13 @@ onoremap <silent> [i :call NextIndent(0, 0, 0, 1)<CR>
 onoremap <silent> ]i :call NextIndent(0, 1, 0, 1)<CR>
 onoremap <silent> [I :call NextIndent(1, 0, 1, 1)<CR>
 onoremap <silent> ]I :call NextIndent(1, 1, 1, 1)<CR>
+
+function! s:VSetSearch()
+  let temp = @@
+  norm! gvy
+  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+  let @@ = temp
+endfunction
+
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
