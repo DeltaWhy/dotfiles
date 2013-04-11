@@ -1,5 +1,18 @@
-[user]
-	name = Michael Limiero
-	email = mike5713@gmail.com
 [core]
-	excludesfile = /home/michael/.gitignore_global
+	excludesfile = ~/.gitignore_global
+[color]
+	ui = true
+[merge]
+	tool = vimdiff
+[push]
+	default = current
+[mergetool]
+	keepBackup = false
+[pretty]
+        compact = %C(yellow)%h %C(cyan)%an %C(green)%ar%n%x09%C(reset)%s
+[format]
+        pretty = compact
+[alias]
+        l = !git --no-pager log master...HEAD
+        master = checkout master
+        develop = checkout develop
