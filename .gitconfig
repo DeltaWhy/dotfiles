@@ -1,3 +1,5 @@
+[include]
+        path = ~/.gitconfig_local
 [core]
 	excludesfile = ~/.gitignore_global
 [color]
@@ -9,10 +11,12 @@
 [mergetool]
 	keepBackup = false
 [pretty]
-        compact = %C(yellow)%h %C(cyan)%an %C(green)%ar%n%x09%C(reset)%s
+        compact = %m %C(yellow)%h %C(cyan)%an %C(green)%ar%n%x09%C(reset)%s
 [format]
         pretty = compact
 [alias]
         l = !git --no-pager log master...HEAD
+        left = !git --no-pager log master...HEAD --left-only
+        right = !git --no-pager log master...HEAD --right-only
         master = checkout master
         develop = checkout develop

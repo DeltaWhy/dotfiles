@@ -19,6 +19,8 @@ set sts=4
 set incsearch
 set hlsearch
 set shiftround
+set splitbelow
+set splitright
 if has('mouse')
   set mouse=a
 endif
