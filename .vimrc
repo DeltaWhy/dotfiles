@@ -6,6 +6,8 @@ set nocompatible
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
 runtime vundle.vim
+let g:slime_target="tmux"
+let g:slime_paste_file=tempname()
 
 set backspace=indent,eol,start
 set history=50
