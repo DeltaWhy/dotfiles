@@ -1,6 +1,7 @@
 let mapleader = ","
 let maplocalleader = "\\"
 nnoremap <leader>v :tabedit $MYVIMRC<cr>
+nnoremap <leader>o :tabedit ~/Dropbox/VimNotes/org/index.org<cr>
 nnoremap <leader>g :execute "Ggrep " . expand("<cword>")<cr>
 nnoremap <leader>G :execute "Ggrep " . expand("<cWORD>")<cr>
 vnoremap <leader>g :execute "Ggrep " . getline("'<")[getpos("'<")[2]-1:getpos("'>")[2]]<cr>

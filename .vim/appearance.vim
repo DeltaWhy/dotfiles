@@ -25,6 +25,7 @@ if has("macunix")
   set guifont=Menlo\ Regular:h14
 else
   set guifont=Ubuntu\ Mono\ 13
+  "set guifont=Inconsolata-dz\ Medium\ 12
 endif
 
 set display=lastline

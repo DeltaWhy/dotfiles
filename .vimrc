@@ -8,6 +8,12 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 runtime vundle.vim
 let g:slime_target="tmux"
 let g:slime_paste_file=tempname()
+let g:org_agenda_files = ['~/Dropbox/VimNotes/org/*.org']
+let g:rails_projections = {
+    \ "spec/factories/*.rb": {
+    \   "command": "factory",
+    \   "related": "app/models/%i.rb",
+    \   "affinity": "collection" }}
 
 set backspace=indent,eol,start
 set history=50
