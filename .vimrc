@@ -35,6 +35,7 @@ endif
 if has("autocmd")
   filetype plugin indent on
   autocmd bufwritepost .vimrc source $MYVIMRC
+  autocmd BufNewFile,BufRead *.rb setlocal sw=2 sts=2 et
 endif " has("autocmd")
 
 runtime appearance.vim
