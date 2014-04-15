@@ -15,7 +15,7 @@
 [format]
         pretty = compact
 [alias]
-        l = !git --no-pager log master...HEAD
+        l = !git --no-pager log origin/master...HEAD
         left = !git --no-pager log master...HEAD --left-only
         right = !git --no-pager log master...HEAD --right-only
         master = checkout master
