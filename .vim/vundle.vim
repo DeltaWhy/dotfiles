@@ -45,6 +45,8 @@ Bundle 'derekwyatt/vim-scala'
 Bundle 'jceb/vim-orgmode'
 Bundle 'vim-scripts/utl.vim'
 Bundle 'mattn/calendar-vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'valloric/YouCompleteMe'
 
 if iCanHazVundle == 0
 echo "Installing Bundles, please ignore key map error messages"

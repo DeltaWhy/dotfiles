@@ -156,7 +156,7 @@ bar {
 }
 
 for_window [class="Xfce4-notifyd"] floating enable; border none; focus mode_toggle
-for_window [class="Xfce4-appfinder"] floating enable; focus mode_toggle
+for_window [class="Xfce4-appfinder"] floating enable
 bindsym $mod+Shift+p exec xfce4-session-logout
 bindsym $mod+Shift+s exec xfce4-settings-manager
 bindsym $mod+i scratchpad show
