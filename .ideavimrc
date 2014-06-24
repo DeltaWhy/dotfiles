@@ -1,0 +1,14 @@
+set backspace=indent,eol,start
+set autoindent
+set smartindent
+set incsearch
+set hlsearch
+set shiftround
+set ruler
+set showcmd
+set number
+let mapleader = ","
+let maplocalleader = "\\"
+map Y y$
+nnoremap <silent> [<Space> O<Esc>j
+nnoremap <silent> ]<Space> o<Esc>k
