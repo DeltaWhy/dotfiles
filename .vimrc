@@ -37,6 +37,7 @@ if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
   autocmd BufNewFile,BufRead *.rb setlocal sw=2 sts=2 et
   autocmd BufNewFile,BufRead *.slim setlocal sw=2 sts=2 et
+  autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > 1024*1024 | set eventignore+=FileType | setlocal noswapfile bufhidden=unload buftype=nowrite undolevels=-1 | else | set eventignore-=FileType | endif
 endif " has("autocmd")
 
 runtime appearance.vim
