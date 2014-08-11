@@ -38,7 +38,7 @@ function! NextIndent(exclusive, fwd, lowerlevel, skipblanks)
     let line = line + stepvalue
     if ( ! a:lowerlevel && indent(line) == indent ||
           \ a:lowerlevel && indent(line) < indent)
-      if (! a:skipblanks || strlen(getline(line)) > 0)
+      if (! a:skipblanks || match(getline(line), '\v\S') >= 0)
         if (a:exclusive)
           let line = line - stepvalue
         endif
