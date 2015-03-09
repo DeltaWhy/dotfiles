@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -34,7 +34,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id dmenu_run
 
 # change focus
 bindsym $mod+h focus left
@@ -42,12 +42,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+p focus parent
-
-# alternatively, you can use the cursor keys:
-#bindsym $mod+Left focus left
-#bindsym $mod+Down focus down
-#bindsym $mod+Up focus up
-#bindsym $mod+Right focus right
+bindsym $mod+o focus child
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -55,11 +50,16 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-#bindsym $mod+Shift+Left move left
-#bindsym $mod+Shift+Down move down
-#bindsym $mod+Shift+Up move up
-#bindsym $mod+Shift+Right move right
+# multi monitor
+bindsym $mod+Left move container to output left; focus output left
+bindsym $mod+Right move container to output right; focus output right
+bindsym $mod+Up move container to output up; focus output up
+bindsym $mod+Down move container to output down; focus output down
+
+bindsym $mod+Shift+Left move workspace to output left
+bindsym $mod+Shift+Right move workspace to output right
+bindsym $mod+Shift+Up move workspace to output up
+bindsym $mod+Shift+Down move workspace to output down
 
 # split in horizontal orientation
 #bindsym $mod+h split h
@@ -81,12 +81,6 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace number 1
@@ -157,11 +151,11 @@ bar {
 
 for_window [class="Xfce4-notifyd"] floating enable; border none; focus mode_toggle
 for_window [class="Xfce4-appfinder"] floating enable
+for_window [class="Skype" window_role="ConversationsWindow"] move scratchpad #; scratchpad show
 bindsym $mod+Shift+p exec xfce4-session-logout
 bindsym $mod+Shift+s exec xfce4-settings-manager
 bindsym $mod+i scratchpad show
 bindsym $mod+Shift+i move scratchpad
 bindsym $mod+Shift+semicolon exec i3-input -P ':'
-bindsym $mod+Shift+n exec i3-input
 workspace_layout tabbed
 workspace_auto_back_and_forth yes

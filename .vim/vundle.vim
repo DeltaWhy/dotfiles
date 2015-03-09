@@ -33,7 +33,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'spiiph/vim-space'
 Bundle 'pangloss/vim-javascript'
 Bundle 'briancollins/vim-jst'
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'slim-template/vim-slim'
 Bundle 'kchmck/vim-coffee-script'
@@ -46,10 +47,34 @@ Bundle 'jceb/vim-orgmode'
 Bundle 'vim-scripts/utl.vim'
 Bundle 'mattn/calendar-vim'
 Bundle 'scrooloose/syntastic'
-Bundle 'valloric/YouCompleteMe'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/vimshell.vim'
+Bundle 'mhinz/vim-startify'
 
 if iCanHazVundle == 0
 echo "Installing Bundles, please ignore key map error messages"
 echo ""
 :BundleInstall
 endif
+
+"let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+"let g:airline_symbols.linenr = '␊'
+let g:airline_symbols = {}
+let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+let g:startify_session_autoload = 1
+let g:startify_change_to_vcs_root = 1
+let g:startify_skiplist = [
+    \ 'COMMIT_EDITMSG',
+    \ $VIMRUNTIME .'/doc',
+    \ 'bundle/.*/doc'
+    \ ]

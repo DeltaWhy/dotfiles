@@ -1,5 +1,5 @@
 [include]
-        path = ~/.gitconfig_local
+	path = ~/.gitconfig_local
 [core]
 	excludesfile = ~/.gitignore_global
 [color]
@@ -11,12 +11,14 @@
 [mergetool]
 	keepBackup = false
 [pretty]
-        compact = %m %C(yellow)%h %C(cyan)%an %C(green)%ar%n%x09%C(reset)%s
+	compact = %m %C(yellow)%h %C(cyan)%an %C(green)%ar%n%x09%C(reset)%s
 [format]
-        pretty = compact
+	pretty = compact
 [alias]
-        l = !git --no-pager log origin/master...HEAD
-        left = !git --no-pager log master...HEAD --left-only
-        right = !git --no-pager log master...HEAD --right-only
-        master = checkout master
-        develop = checkout develop
+	l = !git --no-pager log origin/master...HEAD
+	left = !git --no-pager log master...HEAD --left-only
+	right = !git --no-pager log master...HEAD --right-only
+	master = checkout master
+	develop = checkout develop
+[url "git@github.com:"]
+	pushInsteadOf = https://github.com/

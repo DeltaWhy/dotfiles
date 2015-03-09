@@ -36,7 +36,13 @@ if has("autocmd")
   filetype plugin indent on
   autocmd bufwritepost .vimrc source $MYVIMRC
   autocmd BufNewFile,BufRead *.rb setlocal sw=2 sts=2 et
+  autocmd BufNewFile,BufRead *.md setlocal sw=2 sts=2 et
+  autocmd BufNewFile,BufRead *.yml setlocal sw=2 sts=2 et
   autocmd BufNewFile,BufRead *.slim setlocal sw=2 sts=2 et
+  autocmd BufNewFile,BufRead *.html setlocal sw=2 sts=2 et
+  autocmd BufNewFile,BufRead *.css setlocal sw=4 sts=4 et
+  autocmd BufNewFile,BufRead *.js setlocal sw=4 sts=4 et
+  autocmd BufNewFile,BufRead *.go setlocal sw=8 sts=8 ts=8 noet
   autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > 1024*1024 | set eventignore+=FileType | setlocal noswapfile bufhidden=unload buftype=nowrite undolevels=-1 | else | set eventignore-=FileType | endif
 endif " has("autocmd")
 

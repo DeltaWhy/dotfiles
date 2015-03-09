@@ -10,6 +10,7 @@ map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 noremap <F1> <Esc>
+nnoremap Q @@
 
 " this should be a default
 map Y y$
