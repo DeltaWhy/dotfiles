@@ -273,6 +273,10 @@ elseif g:os == 'Darwin'
   endif
 else " Unix
   if g:os == 'Cygwin'
+    let &t_ti.="\e[1 q"
+    let &t_SI.="\e[5 q"
+    let &t_EI.="\e[1 q"
+    let &t_te.="\e[0 q"
   endif
 endif
 " }}}
@@ -295,6 +299,7 @@ else
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-sleuth'
   Plug 'kien/ctrlp.vim'
   Plug 'scrooloose/nerdtree' | nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
   Plug 'tpope/vim-unimpaired'
