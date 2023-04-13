@@ -18,6 +18,20 @@
 	right = !git --no-pager log master...HEAD --right-only
 	master = checkout master
 	develop = checkout develop
+	diffc = diff --cached
+	diffm = diff --diff-filter=ad
+	diffcm = diff --cached --diff-filter=ad
+	delta = diff --color-moved --color-moved-ws=allow-indentation-change
+	deltas = diff --color-moved --color-moved-ws=allow-indentation-change
+	deltan = diff --color-moved --color-moved-ws=allow-indentation-change
+[pager]
+	delta = delta
+	deltas = delta -s
+	deltan = delta -n
+[diff]
+	wsErrorHighlight = all
+	#colorMoved = default
+	#colorMovedWS = allow-indentation-change
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
 [user]
@@ -30,3 +44,22 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[diff "zip"]
+	textconv = unzip -c -a $1 -x *.zip
+# [core]
+#     pager = delta
+# 
+# [interactive]
+#     diffFilter = delta --color-only
+# [add.interactive]
+#     useBuiltin = false # required for git 2.37.0
+# 
+# [delta]
+#     navigate = true    # use n and N to move between diff sections
+#     light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+# 
+# [merge]
+#     conflictstyle = diff3
+# 
+# [diff]
+#     colorMoved = default
