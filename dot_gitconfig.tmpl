@@ -1,0 +1,32 @@
+[core]
+	excludesfile = ~/.gitignore_global
+[color]
+	ui = true
+[merge]
+	tool = vimdiff
+[push]
+	default = current
+[mergetool]
+	keepBackup = false
+[pretty]
+	compact = %m %C(yellow)%h %C(cyan)%an %C(green)%ar%n%x09%C(reset)%s
+[format]
+	pretty = compact
+[alias]
+	l = !git --no-pager log origin/master...HEAD
+	left = !git --no-pager log master...HEAD --left-only
+	right = !git --no-pager log master...HEAD --right-only
+	master = checkout master
+	develop = checkout develop
+[url "git@github.com:"]
+	pushInsteadOf = https://github.com/
+[user]
+	email = {{ .email | quote }}
+	name = Michael Limiero
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

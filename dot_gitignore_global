@@ -1,0 +1,22 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# VIM files #
+#############
+tags
+*~
+.*.swp
+.*.swo
+Session.vim
+
+scratch.*
+.ycm_extra_conf.py
+.ycm_extra_conf.pyc

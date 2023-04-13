@@ -1,0 +1,7 @@
+{{- if ne .chezmoi.os "linux" -}}
+.config/systemd
+.config/sway
+.config/hypr
+.config/waybar
+.config/kanshi
+{{- end -}}

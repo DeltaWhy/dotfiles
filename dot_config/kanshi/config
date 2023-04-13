@@ -1,0 +1,25 @@
+profile {
+	output DP-1 scale 2
+	output HDMI-A-1 position 1920,0
+	output eDP-1 position 1920,1024
+}
+
+profile docked {
+	output DP-1 scale 2
+	output DP-2 position 1920,0
+	output eDP-1 position 1920,1080
+}
+
+profile {
+	output DP-1 scale 2
+	output HDMI-A-1 position 1920,0
+}
+
+profile {
+	output DP-1 scale 2
+	output DP-2 position 1920,0
+}
+
+profile laptop {
+	output eDP-1
+}
