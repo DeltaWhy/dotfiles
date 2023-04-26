@@ -102,6 +102,7 @@ inoremap <C-U> <C-G>u<C-U>
 " Other options {{{
 let mapleader = ','
 let maplocalleader = '\\'
+set termguicolors
 set hidden
 set hlsearch
 set number
@@ -111,6 +112,12 @@ set splitright
 if has('mouse')
   set mouse=a
 endif
+if has('nvim')
+  set inccommand=nosplit
+endif
+set textwidth=119
+set formatoptions-=t
+set colorcolumn=+1
 " }}}
 
 " Functions {{{
@@ -210,11 +217,19 @@ endfunction
 " Mappings {{{
 
 " Miscellaneous
+nnoremap <Leader>j :0,$!jq .<CR>
+vnoremap <Leader>j :'<,'>!jq .<CR>
+nnoremap <Leader>J :0,$!jq -S .<CR>
+vnoremap <Leader>J :'<,'>!jq -S .<CR>
 nnoremap <Leader>v :edit $MYVIMRC<CR>
 nnoremap ]<Space> o<Esc>k
 nnoremap [<Space> O<Esc>j
 map <Leader>ew :e <C-R>=expand("%:p:h")
 map Y y$
+nnoremap <Leader>c :0,$y +<CR>
+tnoremap <Esc> <C-\><C-n>
+nnoremap <Leader>t :14split \| try \| buf term:<CR> \| catch \| e term://$SHELL \| endtry<CR>
+nnoremap <Leader>p :14split term://ipython<CR>
 
 " Write with elevated privileges
 if g:os != 'Windows' && g:os != 'Cygwin'
@@ -249,6 +264,9 @@ onoremap <silent> ]I :call <SID>NextIndent(1, 1, 1, 1)<CR>
 if has('autocmd')
   autocmd BufWritePost _vimrc source $MYVIMRC
   autocmd BufWritePost .vimrc source $MYVIMRC
+  autocmd BufWritePost init.vim source $MYVIMRC
+  autocmd TermOpen * startinsert
+  autocmd BufNewFile,BufRead COMMIT_EDITMSG,MERGE_MSG set bufhidden=delete
 endif
 " }}}
 
@@ -272,16 +290,27 @@ elseif g:os == 'Darwin'
   else
   endif
 else " Unix
+  if has('gui')
+    set encoding=utf-8
+    set guifont=Liga\ Roboto\ Mono:h12
+  elseif has('nvim')
+    if exists('g:neovide') || has('gui_running')
+    else
+    endif
+    set encoding=utf-8
+    set guifont=Liga\ Roboto\ Mono:h12
+    autocmd GUIEnter * colors base16
+  else
+  endif
+  colors base16
   if g:os == 'Cygwin'
     let &t_ti.="\e[1 q"
     let &t_SI.="\e[5 q"
     let &t_EI.="\e[1 q"
     let &t_te.="\e[0 q"
   endif
-  if has('gui') || has('nvim')
-    colors desert
-    set encoding=utf-8
-  endif
+  let g:python3_host_prog="/usr/bin/python3"
+  " let $PATH=$HOME."/.local/bin:".$PATH
 endif
 " }}}
 
@@ -303,6 +332,7 @@ else
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
+  Plug 'shumphrey/fugitive-gitlab.vim'
   Plug 'tpope/vim-sleuth'
   Plug 'kien/ctrlp.vim'
   Plug 'scrooloose/nerdtree' | nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
@@ -310,14 +340,29 @@ else
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-dispatch'
-  Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline'
+  let g:airline#extensions#tabline#enabled = 1
   Plug 'mhinz/vim-startify'
+  let g:startify_change_to_dir = 0
+  let g:startify_change_to_vcs_root = 1
   Plug 'pbrisbin/vim-mkdir'
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'petobens/poet-v'
   Plug 'Shougo/deoplete.nvim'
   Plug 'deoplete-plugins/deoplete-jedi'
   let g:deoplete#enable_at_startup = 1
+  let g:poetv_executables = ['poetry']
+  let g:poetv_auto_activate = 1
+  let g:airline#extensions#poetv#enabled = 1
+  Plug 'lilydjwg/colorizer'
+  Plug 'mtth/scratch.vim'
+  Plug 'neoclide/jsonc.vim'
+  inoremap <silent><expr> <c-space> coc#refresh()
+  Plug 'schickling/vim-bufonly'
+  Plug 'jvirtanen/vim-hcl'
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'junegunn/fzf.vim'
   call plug#end()
 endif
 " }}}
