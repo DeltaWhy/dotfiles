@@ -1,0 +1,2 @@
+#!/bin/sh
+paplay -d '@DEFAULT_SINK@' --volume 45000 $HOME/.config/wezterm/bell.wav &
