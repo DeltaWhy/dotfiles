@@ -9,6 +9,44 @@
 # Note if multiple patterns are present in the same application name,
 # precedence is given in order of apparition in this file.
 
+"calculator" = ""
+"transmission" = ""
+"videostream" = ""
+"mpv" = ""
+"music" = ""
+"disk usage" = ""
+".pdf" = ""
+'discord' = ''
+'balena-etcher' = ''
+'Chia Blockchain' = ''
+'Steam' = ''
+'vlc' = ''
+'org.qbittorrent.qBittorrent' = ''
+'Thunderbird' = ''
+'thunderbird' = ''
+'Postman' = ''
+'Insomnia' = ''
+'Bitwarden' = ''
+'Google-chrome' = ''
+'Chromium' = ''
+'Slack' = ''
+'Code' = ''
+'code-oss' = ''
+'jetbrains-studio' = ''
+'Spotify' = ''
+'GitHub Desktop' = ''
+'/(?i)Github.*Firefox/' = ''
+'firefox' = ''
+'Nightly' = ''
+'firefoxdeveloperedition' = ''
+'/nvim ?\w*/' = ''
+'nvim' = ''
+'goneovim' = ''
+'/npm/' = ''
+'/node/' = ''
+'/yarn/' = ''
+'Alacritty' = ''
+
 "alacritty" = ""
 "kitty" = ""
 "wezterm" = ""
@@ -23,16 +61,9 @@
 "libreoffice calc" = ""
 "libreoffice writer" = ""
 "libreoffice" = ""
-"nvim" = ""
+#"nvim" = ""
 "gthumb" = ""
 "menu" = ""
-"calculator" = ""
-"transmission" = ""
-"videostream" = ""
-"mpv" = ""
-"music" = ""
-"disk usage" = ""
-".pdf" = ""
 
 [other]
 fallback_icon = "🤨"
