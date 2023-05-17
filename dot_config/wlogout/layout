@@ -12,7 +12,7 @@
 }
 {
     "label" : "logout",
-    "action" : "loginctl terminate-session",
+    "action" : "loginctl terminate-user $USER",
     "text" : "Logout",
     "keybind" : "e"
 }

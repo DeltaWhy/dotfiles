@@ -6,7 +6,7 @@ import urllib.parse
 
 def main(url: str):
     u = urllib.parse.urlparse(url)
-    print(u)
+    # print(u)
     with open('/home/michael/browse.log', 'a') as f:
         f.write(urllib.parse.urlunparse(u))
         f.write('\n')
@@ -19,8 +19,8 @@ def main(url: str):
             u = urllib.parse.urlparse(q['q'][0])
         elif 'url' in q:
             u = urllib.parse.urlparse(q['url'][0])
-        print(urllib.parse.urlunparse(u))
-        print(u)
+        # print(urllib.parse.urlunparse(u))
+        # print(u)
         with open('/home/michael/browse.log', 'a') as f:
             f.write(urllib.parse.urlunparse(u))
             f.write('\n')
@@ -50,10 +50,10 @@ def main(url: str):
         os.execvp('firefoxpwa', ['firefoxpwa', 'site', 'launch', '01G2T19AZ8DK1FTW8DQDCY350M', '--url', urllib.parse.urlunparse(u)])
     else:
         with os.popen('swaymsg -t get_tree') as f:
-            if 'vivaldi-stable' in f.read():
-                os.execvp('vivaldi-stable', ['vivaldi-stable', urllib.parse.urlunparse(u)])
-            else:
+            if 'firefox' in f.read():
                 os.execvp('firefox', ['firefox', urllib.parse.urlunparse(u)])
+            else:
+                os.execvp('vivaldi-stable', ['vivaldi-stable', urllib.parse.urlunparse(u)])
 
 
 if __name__ == '__main__':

@@ -1,0 +1,27 @@
+@import 'default-style.css';
+
+#custom-clock {
+    padding: 0 10px;
+    margin: 0 4px;
+    color: #ffffff;
+}
+#custom-clock {
+    background-color: #64727D;
+}
+
+#custom-weather {
+    padding: 0 10px;
+    margin: 0 4px;
+    color: #ffffff;
+}
+#custom-weather {
+    background-color: #64727D;
+}
+tooltip label {
+    font-family: monospace;
+}
+#workspaces button.active {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
