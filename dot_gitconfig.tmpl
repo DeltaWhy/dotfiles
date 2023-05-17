@@ -6,6 +6,7 @@
 	tool = vimdiff
 [push]
 	default = current
+	recurseSubmodules = check
 [mergetool]
 	keepBackup = false
 [pretty]
@@ -24,12 +25,14 @@
 	delta = diff --color-moved --color-moved-ws=allow-indentation-change
 	deltas = diff --color-moved --color-moved-ws=allow-indentation-change
 	deltan = diff --color-moved --color-moved-ws=allow-indentation-change
+	spull = "!__git_spull() { git pull \"$@\" && git submodule sync --recursive && git submodule update --init --recursive; }; __git_spull"
 [pager]
 	delta = delta
 	deltas = delta -s
 	deltan = delta -n
 [diff]
 	wsErrorHighlight = all
+	submodule = log
 	#colorMoved = default
 	#colorMovedWS = allow-indentation-change
 [url "git@github.com:"]
@@ -64,3 +67,5 @@
 # 
 # [diff]
 #     colorMoved = default
+[status]
+	submoduleSummary = true
