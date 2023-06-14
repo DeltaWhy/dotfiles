@@ -1,0 +1,32 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+rulers = [80, 120]
+bufferline = "multiple"
+color-modes = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator", "separator", "version-control"]
+center = []
+right = ["file-type", "diagnostics", "selections", "position", "file-encoding"]
+
+[editor.lsp]
+display-messages = true
+
+[editor.whitespace]
+render = {tab = "all"}
+
+[editor.indent-guides]
+render = true
+
+[keys.normal]
+# "A-j" = "merge_consecutive_selections"

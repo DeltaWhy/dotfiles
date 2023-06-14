@@ -1,0 +1,11 @@
+[[language]]
+name = "python"
+language-server = { command = "pyright-langserver", args = ["--stdio"] }
+config = {}
+# language-server = { command = "ruff-lsp" }
+formatter = { command = "black", args = ["-", "-q"]}
+
+[[language]]
+name = "qml"
+language-server = { command = "qmlls6" }
+formatter = { command = "qmlformat-qt5", args = ["/dev/stdin"]}
