@@ -1,0 +1,8 @@
+allow_images=true
+allow_markup=true
+term=wezterm
+# matching=fuzzy
+insensitive=true
+parse_search=true
+key_expand=Tab
+dynamic_lines=true
