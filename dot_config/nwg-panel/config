@@ -1,0 +1,294 @@
+[
+  {
+    "name": "panel-top",
+    "output": "",
+    "layer": "top",
+    "position": "top",
+    "controls": "right",
+    "width": "auto",
+    "height": 30,
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "padding-horizontal": 0,
+    "padding-vertical": 0,
+    "spacing": 0,
+    "items-padding": 0,
+    "icons": "light",
+    "css-name": "panel-top",
+    "modules-left": [
+      "button-drawer",
+      "hyprland-workspaces",
+      "playerctl"
+    ],
+    "modules-center": [
+      "clock"
+    ],
+    "modules-right": [
+      "openweather",
+      "tray"
+    ],
+    "controls-settings": {
+      "components": [
+        "brightness",
+        "volume",
+        "battery"
+      ],
+      "commands": {
+        "net": "",
+        "bluetooth": "",
+        "battery": ""
+      },
+      "show-values": true,
+      "interval": 1,
+      "icon-size": 16,
+      "hover-opens": false,
+      "leave-closes": true,
+      "css-name": "controls-window",
+      "net-interface": "",
+      "custom-items": [
+        {
+          "name": "Panel settings",
+          "icon": "nwg-panel",
+          "cmd": "nwg-panel-config"
+        },
+        {
+          "name": "Wlogout",
+          "icon": "system-log-out",
+          "cmd": "wlogout -p layer-shell"
+        }
+      ],
+      "menu": {
+        "name": "Exit",
+        "icon": "system-shutdown-symbolic",
+        "items": [
+          {
+            "name": "Lock",
+            "cmd": "loginctl lock-session"
+          },
+          {
+            "name": "Logout",
+            "cmd": "hyprctl dispatch exit"
+          },
+          {
+            "name": "Suspend",
+            "cmd": "systemctl suspend-then-hibernate"
+          },
+          {
+            "name": "Hibernate",
+            "cmd": "systemctl hibernate"
+          },
+          {
+            "name": "Reboot",
+            "cmd": "systemctl reboot"
+          },
+          {
+            "name": "Shutdown",
+            "cmd": "systemctl -i poweroff"
+          }
+        ]
+      },
+      "output-switcher": true,
+      "backlight-controller": "light",
+      "backlight-device": "",
+      "window-width": 0,
+      "window-margin-horizontal": 0,
+      "window-margin-vertical": 0,
+      "click-closes": true,
+      "root-css-name": "controls-overview",
+      "battery-low-level": 20,
+      "battery-low-interval": 3,
+      "processes-label": "Processes",
+      "angle": 0.0
+    },
+    "sway-taskbar": {
+      "workspace-menu": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "name-max-len": 20,
+      "image-size": 16,
+      "workspaces-spacing": 0,
+      "task-padding": 0,
+      "show-app-icon": true,
+      "show-app-name": true,
+      "show-layout": true,
+      "workspace-buttons": false,
+      "all-workspaces": true,
+      "all-outputs": true
+    },
+    "sway-workspaces": {
+      "numbers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "custom-labels": [],
+      "focused-labels": [],
+      "show-icon": true,
+      "image-size": 16,
+      "show-name": true,
+      "name-length": 40,
+      "mark-autotiling": true,
+      "mark-content": true,
+      "hide-empty": true,
+      "show-layout": true,
+      "angle": 0.0
+    },
+    "clock": {
+      "format": "%a, %b %d %H:%M",
+      "tooltip-text": "",
+      "on-left-click": "",
+      "on-middle-click": "",
+      "on-right-click": "",
+      "on-scroll-up": "",
+      "on-scroll-down": "",
+      "css-name": "clock",
+      "interval": 60,
+      "tooltip-date-format": false,
+      "root-css-name": "root-clock",
+      "angle": 0.0,
+      "calendar-path": "",
+      "calendar-css-name": "calendar-window",
+      "calendar-placement": "top",
+      "calendar-margin-horizontal": 0,
+      "calendar-margin-vertical": 0,
+      "calendar-icon-size": 24,
+      "calendar-interval": 60,
+      "calendar-on": true
+    },
+    "playerctl": {
+      "buttons-position": "left",
+      "icon-size": 16,
+      "chars": 30,
+      "button-css-name": "",
+      "label-css-name": "",
+      "interval": 1
+    },
+    "menu-start": "off",
+    "homogeneous": true,
+    "exclusive-zone": true,
+    "sigrt": 64,
+    "use-sigrt": false,
+    "scratchpad": {},
+    "sway-mode": {},
+    "openweather": {
+      "module-id": "1694830245.348404",
+      "appid": "08e2fbab036507f9c1abf94a37b6e57d",
+      "weatherbit-api-key": "85147526edbf464d8e4595ced8a4f88a",
+      "lat": 36.3203,
+      "long": -82.3686,
+      "lang": "en",
+      "units": "imperial",
+      "interval": 1800,
+      "loc-name": "",
+      "weather-icons": "light",
+      "on-right-click": "",
+      "on-middle-click": "",
+      "on-scroll": "",
+      "icon-placement": "start",
+      "icon-size": 24,
+      "css-name": "weather",
+      "show-name": false,
+      "angle": 0.0,
+      "ow-popup-icons": "light",
+      "popup-header-icon-size": 48,
+      "popup-icon-size": 24,
+      "popup-text-size": "small",
+      "popup-css-name": "weather-forecast",
+      "popup-placement": "right",
+      "popup-margin-horizontal": 0,
+      "popup-margin-top": 0,
+      "popup-margin-bottom": 0,
+      "show-humidity": true,
+      "show-wind": false,
+      "show-pressure": false,
+      "show-cloudiness": false,
+      "show-visibility": false,
+      "show-pop": true,
+      "show-volume": false
+    },
+    "brightness-slider": {},
+    "dwl-tags": {},
+    "hyprland-taskbar": {
+      "name-max-len": 24,
+      "icon-size": 16,
+      "workspaces-spacing": 0,
+      "client-padding": 0,
+      "show-app-icon": true,
+      "show-app-name": true,
+      "show-app-name-special": false,
+      "show-layout": true,
+      "all-outputs": false,
+      "mark-xwayland": true,
+      "angle": 0.0,
+      "image-size": 16,
+      "task-padding": 0
+    },
+    "hyprland-workspaces": {
+      "num-ws": 10,
+      "show-icon": true,
+      "image-size": 16,
+      "show-name": true,
+      "name-length": 40,
+      "show-empty": false,
+      "mark-content": true,
+      "show-names": true,
+      "mark-floating": true,
+      "mark-xwayland": true,
+      "angle": 0.0
+    },
+    "executor-weather": {
+      "script": "curl https://wttr.in/?format=1 -s",
+      "interval": 1800,
+      "css-name": "weather",
+      "on-right-click": "",
+      "icon-size": 16,
+      "show-icon": true,
+      "tooltip-text": "",
+      "on-left-click": "",
+      "on-middle-click": "",
+      "on-scroll-up": "",
+      "on-scroll-down": ""
+    },
+    "tray": {},
+    "menu-start-settings": {
+      "cmd-lock": "loginctl lock",
+      "cmd-logout": "hyprctl dispatch exit",
+      "cmd-restart": "systemctl reboot",
+      "cmd-shutdown": "systemctl -i poweroff",
+      "autohide": true,
+      "file-manager": "thunar",
+      "height": 0,
+      "icon-size-large": 32,
+      "icon-size-small": 16,
+      "icon-size-button": 16,
+      "margin-bottom": 0,
+      "margin-left": 0,
+      "margin-right": 0,
+      "margin-top": 0,
+      "padding": 2,
+      "terminal": "foot",
+      "width": 0
+    },
+    "button-drawer": {
+      "command": "nwg-drawer",
+      "icon": "view-app-grid-symbolic",
+      "label": "",
+      "label-position": "right",
+      "tooltip": "",
+      "css-name": "",
+      "icon-size": 16
+    }
+  }
+]

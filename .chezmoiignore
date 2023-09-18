@@ -1,7 +1,9 @@
 {{- if ne .chezmoi.os "linux" -}}
-.config/systemd
-.config/sway
 .config/hypr
-.config/waybar
 .config/kanshi
+.config/sway
+.config/systemd
+.config/waybar
+.config/wlogout
+.config/workstyle
 {{- end -}}
