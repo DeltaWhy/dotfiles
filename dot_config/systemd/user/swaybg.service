@@ -1,0 +1,6 @@
+[Service]
+ExecStart=/usr/bin/swaybg -i ${HOME}/.config/sway/wallpaper.png -o '*'
+Restart=always
+
+[Install]
+WantedBy=sway-session.target hyprland-session.target

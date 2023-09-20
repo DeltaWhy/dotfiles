@@ -1,0 +1,5 @@
+[Service]
+ExecStart=/usr/bin/wl-paste -t text --watch clipman store
+
+[Install]
+WantedBy=sway-session.target hyprland-session.target

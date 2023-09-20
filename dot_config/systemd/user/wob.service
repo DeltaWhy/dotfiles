@@ -1,0 +1,8 @@
+[Service]
+ExecStartPre=rm -f $SWAYSOCK.wob
+ExecStartPre=mkfifo $SWAYSOCK.wob
+ExecStart=/bin/tail -f $SWAYSOCK.wob | wob 2>&1
+ExecStopPost=rm -f $SWAYSOCK.wob
+
+[Install]
+WantedBy=sway-session.target hyprland-session.target

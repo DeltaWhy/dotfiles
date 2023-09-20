@@ -1,0 +1,6 @@
+[Service]
+ExecStart=/usr/bin/nwg-panel
+Restart=always
+
+[Install]
+WantedBy=sway-session.target hyprland-session.target

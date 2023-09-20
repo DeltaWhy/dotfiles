@@ -5,4 +5,4 @@ Description=redshift needs to get a (geo)clue
 ExecStart=/usr/lib/geoclue-2.0/demos/agent
 
 [Install]
-WantedBy=default.target
+WantedBy=sway-session.target hyprland-session.target
