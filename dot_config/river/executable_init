@@ -11,7 +11,10 @@
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal Super+Shift Return spawn foot
+riverctl map normal Super+Shift Return spawn wezterm
+
+riverctl map normal Super D spawn 'wofi --show run'
+riverctl map normal Super+Shift D spawn 'wofi --show drun'
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close
@@ -84,10 +87,10 @@ do
     # Super+Shift+[1-9] to tag focused view with tag [0-8]
     riverctl map normal Super+Shift $i set-view-tags $tags
 
-    # Super+Control+[1-9] to toggle focus of tag [0-8]
+    # Super+Ctrl+[1-9] to toggle focus of tag [0-8]
     riverctl map normal Super+Control $i toggle-focused-tags $tags
 
-    # Super+Shift+Control+[1-9] to toggle tag [0-8] of focused view
+    # Super+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
     riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
 done
 
@@ -148,15 +151,34 @@ riverctl border-color-focused 0x93a1a1
 riverctl border-color-unfocused 0x586e75
 
 # Set keyboard repeat rate
-riverctl set-repeat 50 300
+#riverctl set-repeat 50 300
 
-# Make all views with an app-id that starts with "float" and title "foo" start floating.
-riverctl rule-add float -app-id 'float*' -title 'foo'
+# Make certain views start floating
+riverctl float-filter-add app-id float
+riverctl float-filter-add title "popup title with spaces"
 
-# Make all views with app-id "bar" and any title use client-side decorations
-riverctl rule-add csd -app-id "bar"
+# Set app-ids and titles of views which should use client side decorations
+riverctl csd-filter-add app-id "gedit"
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
 rivertile -view-padding 6 -outer-padding 6 &
+
+riverctl keyboard-layout -options caps:ctrl_modifier,grp:alt_space_toggle -variant ,colemak_dh us,us
+
+riverctl focus-follows-cursor normal
+riverctl xcursor-theme capitaine-cursors 36
+riverctl set-cursor-warp on-focus-change
+riverctl spawn river-tag-overlay
+
+if true; then
+    riverctl map normal Super H send-layout-cmd stacktile "primary_ratio -0.05"
+    riverctl map normal Super L send-layout-cmd stacktile "primary_ratio +0.05"
+    riverctl map normal Super+Shift H send-layout-cmd stacktile "primary_count +1"
+    riverctl map normal Super+Shift L send-layout-cmd stacktile "primary_count -1"
+    riverctl map normal Super Up    send-layout-cmd stacktile "primary_position top"
+    riverctl map normal Super Right send-layout-cmd stacktile "primary_position right"
+    riverctl map normal Super Down  send-layout-cmd stacktile "primary_position bottom"
+    riverctl map normal Super Left  send-layout-cmd stacktile "primary_position left"
+fi

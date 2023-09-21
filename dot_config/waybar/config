@@ -1,11 +1,11 @@
 {
-    // "layer": "top", // Waybar at top layer
+    "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "wlr/workspaces", "sway/mode", "hyprland/submap", "custom/media", "wlr/taskbar"],
-    "modules-center": ["sway/window","hyprland/window"],
+    "modules-left": ["sway/workspaces", "hyprland/workspaces", "wlr/workspaces", "river/tags", "sway/mode", "hyprland/submap", "custom/media", "wlr/taskbar"],
+    "modules-center": ["sway/window","hyprland/window", "river/window"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "battery", "battery#bat2", "tray", "clock"],
     // Modules configuration
     // "sway/workspaces": {
