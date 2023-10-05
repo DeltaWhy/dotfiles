@@ -1,7 +1,7 @@
 [
   {
     "name": "panel-top",
-    "output": "",
+    "output": "All",
     "layer": "top",
     "position": "top",
     "controls": "right",
@@ -173,7 +173,11 @@
       "chars": 30,
       "button-css-name": "",
       "label-css-name": "",
-      "interval": 1
+      "interval": 1,
+      "scroll": true,
+      "show-cover": false,
+      "cover-size": 24,
+      "angle": 0.0
     },
     "menu-start": "off",
     "homogeneous": true,

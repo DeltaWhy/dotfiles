@@ -1,9 +1,9 @@
 #!/bin/sh
 # for mandoc
 if [ -n "$1" ]; then
-    ul < "$1" | sed -E -e 's/\x1b\(B\x1b\[m\x1b\[4m_\x1b\[24m\x1b\[1m/_/g' -e 's/\x1b\[1m(\S*?)\x1b\(B\x1b\[m(\([0-9]+\))/\x1b\[1m \x08\1\2\x1b\(B\x1b\[m/g' -e 's/\x1b\[4m(\S*?)\x1b\[24m(\(\S+\))/\x1b\[4m \x08\1\2\x1b\[24m/g' | bat -l man -p --paging always
+    ul < "$1" | sed -E -e 's/\x1b\(B\x1b\[m\x1b\[4m_\x1b\[24m\x1b\[1m/_/g' -e 's/\x1b\[1m(\S*?)\x1b\(B\x1b\[m(\(\S*\))/\x1b\[1m \x08\1\2\x1b\(B\x1b\[m/g' -e 's/\x1b\[4m(\S*?)\x1b\[24m(\(\S*\))/\x1b\[4m \x08\1\2\x1b\[24m/g' | bat -l man -p --paging always
 else
     # for man-db
-    sed -E -e 's/\x1b\[1m(\S*?)\x1b\[22m(\(\S+\))/\x1b\[1m \x08\1\2\x1b\[22m/g' -e 's/\x1b\[4m(\S*?)\x1b\[24m(\(\S+\))/\x1b\[4m \x08\1\2\x1b\[24m/g'  | bat -l man -p --paging always
+    sed -E -e 's/\x1b\[1m(\S*?)\x1b\[22m(\(\S*\))/\x1b\[1m \x08\1\2\x1b\[22m/g' -e 's/\x1b\[4m(\S*?)\x1b\[24m(\(\S*\))/\x1b\[4m \x08\1\2\x1b\[24m/g'  | bat -l man -p --paging always
     #sed -E -e 's/\x1b\[1m(\S*?)\x1b\[22m(\(\S+\))/\x1b\[1m \x08\1\2\x1b\[22m/g' | bat -l man -p --paging always
 fi

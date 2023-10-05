@@ -7,3 +7,6 @@
 .config/wlogout
 .config/workstyle
 {{- end -}}
+{{- if eq .chezmoi.hostname "diorite" -}}
+.config/pip/pip.conf
+{{- end -}}
