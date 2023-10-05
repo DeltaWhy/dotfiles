@@ -1,0 +1,19 @@
+{
+	"python.analysis.extraPaths": ["/home/michael/code/python-datawalk-api", "src", "."],
+	"python.linting.flake8Enabled": true,
+	"python.linting.mypyEnabled": false,
+	"python.formatting.provider": "black",
+	"languageserver": {
+		"terraform": {
+			"command": "terraform-lsp",
+			"filetypes": [
+				"terraform",
+				"tf",
+				"tfvars"
+			],
+			"initializationOptions": {},
+			"settings": {}
+		}
+	},
+	"suggest.noselect": true
+}
