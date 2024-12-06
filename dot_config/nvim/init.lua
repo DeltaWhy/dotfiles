@@ -109,53 +109,57 @@ vim.opt.colorcolumn = '+1'
 -- }}}
 
 -- Mappings {{{
-vim.keymap.set('n', '<Leader>j', ':0,$!jq .<CR>')
-vim.keymap.set('v', '<Leader>j', ":'<,'>!jq .<CR>")
-vim.keymap.set('n', '<Leader>J', ':0,$!jq -S .<CR>')
-vim.keymap.set('v', '<Leader>J', ":'<,'>!jq -S .<CR>")
-vim.keymap.set('n', '<Leader>v', ':edit $MYVIMRC<CR>')
-vim.keymap.set('n', ']<Space>', 'o<Esc>k')
-vim.keymap.set('n', '[<Space>', 'O<Esc>j')
-vim.keymap.set('', '<Leader>ew', ':e <C-R>=expand("%:p:h")')
+vim.keymap.set('n', '<Leader>j', ':0,$!jq .<CR>', { desc = 'format with jq' })
+vim.keymap.set('v', '<Leader>j', ":'<,'>!jq .<CR>", { desc = 'format with jq' })
+vim.keymap.set('n', '<Leader>J', ':0,$!jq -S .<CR>', { desc = 'format with jq (sort keys)' })
+vim.keymap.set('v', '<Leader>J', ":'<,'>!jq -S .<CR>", { desc = 'format with jq (sort keys)' })
+vim.keymap.set('n', '<Leader>v', ':edit $MYVIMRC<CR>', { desc = 'edit init.lua' })
+vim.keymap.set('n', ']<Space>', 'o<Esc>k', { desc = 'insert blank line below' })
+vim.keymap.set('n', '[<Space>', 'O<Esc>j', { desc = 'insert blank line above' })
+vim.keymap.set('', '<Leader>ew', ':e <C-R>=expand("%:p:h")', { desc = 'edit parent directory' })
 vim.keymap.set('', 'Y', 'y$')
-vim.keymap.set('n', '<Leader>c', ':0,$y +<CR>')
+vim.keymap.set('n', '<Leader>y', ':0,$y +<CR>', { desc = 'copy whole file to clipboard' })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
-vim.keymap.set('n', '<Leader>p', ':14split term://ipython<CR>')
+vim.keymap.set('n', '<Leader>p', ':14split term://ipython<CR>', { desc = 'ipython terminal' })
 vim.keymap.set('n', '<Leader>t', function ()
   vim.cmd('14split')
   local ok, result = pcall(vim.cmd, 'buf term:')
   if not ok then
     vim.cmd('e term://$SHELL')
   end
-end)
+end, { desc = 'toggle terminal' })
 if vim.g.os ~= 'Windows' and vim.g.os ~= 'Cygwin' then
   vim.keymap.set('c', 'w!!', 'w !sudo dd of=%')
 end
 vim.keymap.set('v', '*', ':<C-u>call VSetSearch()<CR>//<CR>')
 vim.keymap.set('v', '#', ':<C-u>call VSetSearch()<CR>??<CR>')
 
-vim.keymap.set('n', '<Leader>g', ':call MagicGrep(expand("<cword>"))<CR>')
-vim.keymap.set('n', '<Leader>G', ':call MagicGrep(expand("<cWORD>"))<CR>')
-vim.keymap.set('v', '<Leader>g', ':call MagicGrep(getline("\'<")[getpos("\'<")[2]-1:getpos("\'>")[2]])<CR>')
+vim.keymap.set('n', '<Leader>g', ':call MagicGrep(expand("<cword>"))<CR>', { desc = 'grep word' })
+vim.keymap.set('n', '<Leader>G', ':call MagicGrep(expand("<cWORD>"))<CR>', { desc = 'grep WORD' })
+vim.keymap.set('v', '<Leader>g', ':call MagicGrep(getline("\'<")[getpos("\'<")[2]-1:getpos("\'>")[2]])<CR>', { desc = 'grep selection' })
 
-vim.keymap.set({'n','o'}, '[i', ':call NextIndent(0, 0, 0, 1)<CR>', { silent = true})
-vim.keymap.set({'n','o'}, ']i', ':call NextIndent(0, 1, 0, 1)<CR>', { silent = true})
-vim.keymap.set({'n','o'}, '[I', ':call NextIndent(0, 0, 1, 1)<CR>', { silent = true})
-vim.keymap.set({'n','o'}, ']I', ':call NextIndent(0, 1, 1, 1)<CR>', { silent = true})
-vim.keymap.set('v', '[i', "<Esc>:call NextIndent(0, 0, 0, 1)<CR>m'gv''", { silent = true})
-vim.keymap.set('v', ']i', "<Esc>:call NextIndent(0, 1, 0, 1)<CR>m'gv''", { silent = true})
-vim.keymap.set('v', '[I', "<Esc>:call NextIndent(0, 0, 1, 1)<CR>m'gv''", { silent = true})
-vim.keymap.set('v', ']I', "<Esc>:call NextIndent(0, 1, 1, 1)<CR>m'gv''", { silent = true})
+vim.keymap.set({'n','o'}, '[i', ':call NextIndent(0, 0, 0, 1)<CR>', { silent = true, desc = 'move by indent' })
+vim.keymap.set({'n','o'}, ']i', ':call NextIndent(0, 1, 0, 1)<CR>', { silent = true, desc = 'move by indent' })
+vim.keymap.set({'n','o'}, '[I', ':call NextIndent(0, 0, 1, 1)<CR>', { silent = true, desc = 'move by indent' })
+vim.keymap.set({'n','o'}, ']I', ':call NextIndent(0, 1, 1, 1)<CR>', { silent = true, desc = 'move by indent' })
+vim.keymap.set('v', '[i', "<Esc>:call NextIndent(0, 0, 0, 1)<CR>m'gv''", { silent = true, desc = 'move by indent' })
+vim.keymap.set('v', ']i', "<Esc>:call NextIndent(0, 1, 0, 1)<CR>m'gv''", { silent = true, desc = 'move by indent' })
+vim.keymap.set('v', '[I', "<Esc>:call NextIndent(0, 0, 1, 1)<CR>m'gv''", { silent = true, desc = 'move by indent' })
+vim.keymap.set('v', ']I', "<Esc>:call NextIndent(0, 1, 1, 1)<CR>m'gv''", { silent = true, desc = 'move by indent' })
 -- }}}
 
 -- Autocommands {{{
 local mygroup = vim.api.nvim_create_augroup('vimrc', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', { pattern = 'init.lua', command = 'source $MYVIMRC', group = mygroup })
+--vim.api.nvim_create_autocmd('BufWritePost', { pattern = 'init.lua', command = 'source $MYVIMRC', group = mygroup })
 vim.api.nvim_create_autocmd('TermOpen', { pattern = '*', command = 'startinsert', group = mygroup })
 vim.api.nvim_create_autocmd({'BufNewFile','BufRead'}, { pattern = {'COMMIT_EDITMSG', 'MERGE_MSG'}, command = 'set bufhidden=delete', group = mygroup })
+vim.api.nvim_create_autocmd({'BufNewFile','BufRead'}, { pattern = {'*.state'}, command = 'set ft=json', group = mygroup })
 vim.api.nvim_create_autocmd('GUIEnter', { pattern = '*', callback = function ()
   vim.opt.guioptions:remove('m')
   vim.opt.guioptions:remove('T')
+end, group = mygroup })
+vim.api.nvim_create_autocmd('UIEnter', { pattern = '*', callback = function ()
+  vim.cmd('redraw!')
 end, group = mygroup })
 -- }}}
 
@@ -182,6 +186,12 @@ else
   end
   vim.g.python3_host_prog="/usr/bin/python3"
 end
+-- vim.g.neovide_floating_blur_amount_x = 2.0
+-- vim.g.neovide_floating_blur_amount_y = 2.0
+-- vim.g.neovide_floating_shadow = true
+vim.g.neovide_position_animation_length = 0.15
+vim.g.neovide_scroll_animation_length = 0.1
+vim.g.neovide_transparency = 0.95
 -- }}}
 
 -- Plugins {{{
@@ -192,7 +202,7 @@ require("lazy").setup({
   'tpope/vim-fugitive',
   'shumphrey/fugitive-gitlab.vim',
   'tpope/vim-sleuth',
-  'kien/ctrlp.vim',
+  --'kien/ctrlp.vim',
   { 'scrooloose/nerdtree', keys = { {'<Leader>n', '<cmd>NERDTreeToggle<cr>', silent = true } } },
   'tpope/vim-unimpaired',
   'tpope/vim-eunuch',
@@ -202,10 +212,10 @@ require("lazy").setup({
     vim.g['airline#extensions#tabline#enabled'] = 1
     vim.g['airline#extensions#poetv#enabled'] = 1
   end },
-  { 'mhinz/vim-startify', config = function()
-    vim.g.startify_change_to_dir = 0
-    vim.g.startify_change_to_vcs_root = 1
-  end },
+  -- { 'mhinz/vim-startify', config = function()
+  --   vim.g.startify_change_to_dir = 0
+  --   vim.g.startify_change_to_vcs_root = 1
+  -- end },
   { 'neoclide/coc.nvim', branch = 'release', config = function()
     vim.keymap.set('i', '<c-space>', 'coc#refresh()', { silent = true, expr = true })
   end },
@@ -217,13 +227,84 @@ require("lazy").setup({
     vim.g['deoplete#enable_at_startup'] = 1
   end },
   { 'deoplete-plugins/deoplete-jedi', dependencies = { 'Shougo/deoplete.nvim' } },
-  'lilydjwg/colorizer',
   'mtth/scratch.vim',
   'neoclide/jsonc.vim',
   'schickling/vim-bufonly',
   'jvirtanen/vim-hcl',
   'arcticicestudio/nord-vim',
-  'junegunn/fzf.vim',
+  { 'junegunn/fzf', build = function() vim.fn['fzf#install']() end },
+  -- { 'junegunn/fzf.vim', config = function()
+  --   vim.keymap.set('n', '<C-P>', ':Files<CR>')
+  -- end },
+  {
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup({})
+    end
+  },
+  { 'folke/which-key.nvim', event = 'VeryLazy', init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+  end, opts = {} },
+  { 'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {
+    indent = { char = '▏' }
+  } },
+  { 'nvim-treesitter/nvim-treesitter', build = function() vim.cmd('TSUpdate') end, config = function()
+  require'nvim-treesitter.configs'.setup {
+    ensure_installed = { 'lua', 'vim', 'vimdoc', 'python', 'json', 'bash', 'comment', 'css', 'devicetree', 'diff', 'dockerfile', 'git_config', 'gitattributes', 'gitcommit', 'gitignore', 'go', 'hcl', 'html', 'java', 'javascript', 'jq', 'jsonc', 'make', 'markdown_inline', 'rust', 'rst', 'scss', 'sql', 'ssh_config', 'terraform', 'toml', 'tsv', 'typescript', 'yaml', 'csv' },
+    auto_install = false,
+    highlight = {
+      enable = true,
+    },
+    indent = {
+      enable = true,
+    },
+    incremental_selection = {
+      enable = true,
+    },
+  }
+end },
+{ 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim', config = function()
+  local rainbow_delimiters = require 'rainbow-delimiters'
+  vim.g.rainbow_delimiters = {
+    strategy = {
+      [''] = rainbow_delimiters.strategy['global'],
+    },
+    query = {
+      [''] = 'rainbow-delimiters',
+      lua = 'rainbow-blocks',
+    },
+    highlight = {
+      'RainbowDelimiterRed',
+      'RainbowDelimiterYellow',
+      'RainbowDelimiterBlue',
+      'RainbowDelimiterOrange',
+      'RainbowDelimiterGreen',
+      'RainbowDelimiterViolet',
+      'RainbowDelimiterCyan',
+    },
+  }
+end },
+'MTDL9/vim-log-highlighting',
+'towolf/vim-helm',
+{ 'ii14/neorepl.nvim', command = 'Repl' },
+{ 'folke/snacks.nvim', opts = {
+  bigfile = { enabled = true },
+  notifier = { enabled = true },
+  dashboard = {
+    sections = {
+        { section = "header" },
+        -- { section = "terminal", cmd = "fortune -s | cowsay", hl = "header", padding = 1, indent = 8 },
+        { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
+        { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+        { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+        { section = "startup" },
+      },
+    },
+  }},
 })
 -- }}}
 

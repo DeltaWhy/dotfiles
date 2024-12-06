@@ -1,5 +1,5 @@
 [Service]
-ExecStart=/usr/bin/swayosd
+ExecStart=/usr/bin/swayosd-server
 Restart=always
 
 [Install]

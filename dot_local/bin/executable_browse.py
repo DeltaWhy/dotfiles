@@ -7,11 +7,11 @@ import urllib.parse
 def main(url: str):
     u = urllib.parse.urlparse(url)
     # print(u)
-    with open('/home/michael/browse.log', 'a') as f:
-        f.write(urllib.parse.urlunparse(u))
-        f.write('\n')
-        f.write(str(u))
-        f.write('\n')
+    # with open('/home/michael/browse.log', 'a') as f:
+    #     f.write(urllib.parse.urlunparse(u))
+    #     f.write('\n')
+    #     f.write(str(u))
+    #     f.write('\n')
     if u.netloc == 'www.google.com' and u.path == '/url':
         # de-google
         q = urllib.parse.parse_qs(u.query)

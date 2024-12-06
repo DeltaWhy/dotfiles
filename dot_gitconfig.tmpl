@@ -26,6 +26,7 @@
 	deltas = diff --color-moved --color-moved-ws=allow-indentation-change
 	deltan = diff --color-moved --color-moved-ws=allow-indentation-change
 	spull = "!__git_spull() { git pull \"$@\" && git submodule sync --recursive && git submodule update --init --recursive; }; __git_spull"
+	please = push --force-with-lease
 [pager]
 	delta = delta
 	deltas = delta -s
@@ -33,8 +34,13 @@
 [diff]
 	wsErrorHighlight = all
 	submodule = log
+	tool = meld
 	#colorMoved = default
 	#colorMovedWS = allow-indentation-change
+
+[difftool]
+	prompt = false
+
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
 [user]
@@ -77,3 +83,6 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+
+[rerere]
+	enabled = true

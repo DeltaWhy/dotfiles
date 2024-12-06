@@ -15,5 +15,6 @@
 			"settings": {}
 		}
 	},
-	"suggest.noselect": true
+	"suggest.noselect": true,
+	"sumneko-lua.enableNvimLuaDev": true,
 }
