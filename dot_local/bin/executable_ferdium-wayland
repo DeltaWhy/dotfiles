@@ -1,0 +1,2 @@
+#!/bin/sh
+ferdium --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer

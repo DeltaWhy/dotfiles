@@ -1,0 +1,2 @@
+#!/bin/sh
+teams-for-linux --enable-features=WebRTCPipeWireCapturer --enable-features=UseOzonePlatform --enable-gpu --ozone-platform=wayland "$@"

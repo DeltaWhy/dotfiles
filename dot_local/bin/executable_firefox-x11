@@ -1,0 +1,4 @@
+#!/bin/sh
+export GDK_BACKEND=x11
+export MOZ_ENABLE_WAYLAND=0
+exec firefox "$@"

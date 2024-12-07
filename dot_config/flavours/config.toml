@@ -1,0 +1,46 @@
+[[item]]
+template="vim"
+file="~/.vim/colors/base16.vim"
+rewrite=true
+
+[[item]]
+template="vim"
+file="~/.config/nvim/colors/base16.vim"
+rewrite=true
+
+[[item]]
+template="sway"
+subtemplate="colors"
+file="~/.config/sway/colors"
+rewrite=true
+hook="swaymsg reload"
+
+[[item]]
+template="kitty"
+file="~/.config/kitty/colors"
+rewrite=true
+hook="kitty @set-colors .config/kitty/colors"
+
+[[item]]
+template="waybar"
+file="~/.config/waybar/colors.css"
+rewrite=true
+hook="swaymsg reload"
+
+[[item]]
+template="mako"
+file="~/.config/mako/config"
+
+[[item]]
+template="wofi"
+file="~/.config/wofi/colors.css"
+rewrite=true
+
+[[item]]
+template="tmux"
+file="~/.tmux.conf"
+
+[[item]]
+template="konsole"
+file="~/.local/share/konsole/base16.colorscheme"
+rewrite=true
