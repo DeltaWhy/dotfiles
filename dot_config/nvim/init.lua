@@ -218,6 +218,23 @@ require("lazy").setup({
   -- end },
   { 'neoclide/coc.nvim', branch = 'release', config = function()
     vim.keymap.set('i', '<c-space>', 'coc#refresh()', { silent = true, expr = true })
+    -- Use K to show documentation in preview window
+    function _G.show_docs()
+      local cw = vim.fn.expand('<cword>')
+      if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
+        vim.api.nvim_command('h ' .. cw)
+      elseif vim.api.nvim_eval('coc#rpc#ready()') then
+        vim.fn.CocActionAsync('doHover')
+      else
+        vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
+      end
+    end
+    vim.keymap.set("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
+    vim.keymap.set("n", "gd", "<Plug>(coc-definition)", {silent = true})
+    vim.keymap.set("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
+    vim.keymap.set("n", "gi", "<Plug>(coc-implementation)", {silent = true})
+    vim.keymap.set("n", "gr", "<Plug>(coc-references)", {silent = true})
+    -- vim.keymap.set("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
   end },
   { 'petobens/poet-v', config = function ()
     vim.g.poetv_executables = {'poetry'}
@@ -305,6 +322,44 @@ end },
       },
     },
   }},
+  { 'L3MON4D3/LuaSnip',
+    version = 'v2.*',
+    build = 'make install_jsregexp',
+    dependencies = { 'rafamadriz/friendly-snippets' },
+    config = function()
+      local ls = require('luasnip')
+      vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
+      vim.keymap.set({'i','s'}, "<C-L>", function() ls.jump(1) end, {silent = true})
+      vim.keymap.set({'i','s'}, "<C-J>", function() ls.jump(-1) end, {silent = true})
+
+      vim.keymap.set({'i', 's'}, "<C-E>", function()
+        if ls.choice_active() then
+          ls.change_choice(1)
+        end
+      end, {silent = true})
+      require('luasnip.loaders.from_vscode').lazy_load()
+      require('snippets')
+    end,
+  },
+{
+  'nvim-orgmode/orgmode',
+  event = 'VeryLazy',
+  ft = { 'org' },
+  config = function()
+    -- Setup orgmode
+    require('orgmode').setup({
+      org_agenda_files = '~/org/**/*',
+      org_default_notes_file = '~/org/index.org',
+    })
+
+    -- NOTE: If you are using nvim-treesitter with ~ensure_installed = "all"~ option
+    -- add ~org~ to ignore_install
+    -- require('nvim-treesitter.configs').setup({
+    --   ensure_installed = 'all',
+    --   ignore_install = { 'org' },
+    -- })
+  end,
+}
 })
 -- }}}
 

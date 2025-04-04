@@ -53,7 +53,8 @@ def main(url: str):
             if 'firefox' in f.read():
                 os.execvp('firefox', ['firefox', urllib.parse.urlunparse(u)])
             else:
-                os.execvp('vivaldi-stable', ['vivaldi-stable', urllib.parse.urlunparse(u)])
+                #os.execvp('vivaldi-stable', ['vivaldi-stable', urllib.parse.urlunparse(u)])
+                os.execvp('zen-browser', ['zen-browser', urllib.parse.urlunparse(u)])
 
 
 if __name__ == '__main__':

@@ -44,6 +44,9 @@
 [user]
 	email = {{ .email | quote }}
 	name = Michael Limiero
+	{{- if index . "signingKey" }}
+	signingkey = {{ .signingKey }}
+	{{- end }}
 [init]
 	defaultBranch = main
 	templateDir = /home/michael/.config/git/template

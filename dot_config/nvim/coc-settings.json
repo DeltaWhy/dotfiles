@@ -17,4 +17,13 @@
 	},
 	"suggest.noselect": true,
 	"sumneko-lua.enableNvimLuaDev": true,
+	"yaml.schemas": {
+		"kubernetes": "*.yaml"
+	},
+	"yaml.completion": true,
+	"yaml.hover": true,
+	"yaml.validate": true,
+	"pyright.inlayHints.parameterTypes": false,
+	"coc.preferences.useQuickfixForLocations": true,
+	"inlayHint.display": false,
 }
