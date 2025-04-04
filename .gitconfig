@@ -67,8 +67,3 @@
 # 
 # [diff]
 #     colorMoved = default
-[jira]
-	email = michael.limiero@datawalk.com
-	token = elS4aPaFkK8c4jSVha4aA2E6
-	url = https://datawalk.atlassian.net
-	enabled = true
